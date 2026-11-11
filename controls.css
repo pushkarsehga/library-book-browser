@@ -1,0 +1,24 @@
+/* Search bar and filter panel */
+.search-bar { position: relative; margin-bottom: 1rem; }
+.search-bar input {
+  width: 100%; padding: 0.8rem 1rem 0.8rem 2.75rem; font-size: 1rem; font-family: inherit;
+  border: 2px solid var(--border); border-radius: var(--radius); background: var(--surface);
+}
+.search-bar input:focus { border-color: var(--primary); outline: none; }
+.search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); }
+
+.filter-panel {
+  display: grid; grid-template-columns: 1fr; gap: 0.75rem; align-items: end;
+  background: var(--surface); padding: 1rem; border-radius: var(--radius);
+  box-shadow: var(--shadow); margin-bottom: 1rem;
+}
+.filter-group { display: flex; flex-direction: column; gap: 0.25rem; }
+.filter-group label { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.filter-group select {
+  padding: 0.6rem; font-size: 0.95rem; font-family: inherit; border: 2px solid var(--border);
+  border-radius: 8px; background: #fff;
+}
+.filter-group select:focus { border-color: var(--primary); outline: none; }
+
+@media (min-width: 600px) { .filter-panel { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 992px) { .filter-panel { grid-template-columns: repeat(3, 1fr) auto; } }

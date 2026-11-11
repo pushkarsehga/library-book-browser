@@ -1,0 +1,33 @@
+/* Navbar (mobile-first) and footer */
+.navbar { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; min-height: 60px; }
+.brand { font-size: 1.25rem; font-weight: 800; }
+.brand-accent { color: var(--primary); }
+
+.nav-toggle { background: none; border: 0; padding: 0.6rem; cursor: pointer; }
+.hamburger, .hamburger::before, .hamburger::after {
+  display: block; width: 24px; height: 3px; background: var(--text); border-radius: 2px;
+  transition: transform 0.25s, background 0.25s;
+}
+.hamburger { position: relative; }
+.hamburger::before, .hamburger::after { content: ''; position: absolute; left: 0; }
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+.hamburger.is-open { background: transparent; }
+.hamburger.is-open::before { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* Links are hidden on mobile until the menu is opened */
+.nav-links { display: none; width: 100%; flex-direction: column; padding-bottom: 0.75rem; }
+.nav-links.is-open { display: flex; }
+.nav-links a { padding: 0.6rem 0.5rem; border-radius: 8px; font-weight: 600; color: var(--muted); }
+.nav-links a:hover { background: var(--bg); color: var(--text); }
+.nav-links a.active { color: var(--primary); background: #eef2ff; }
+
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+  .nav-links { display: flex; flex-direction: row; width: auto; padding: 0; gap: 0.5rem; }
+}
+
+.footer { background: #0f172a; color: #cbd5e1; padding: 1.25rem 0; text-align: center; font-size: 0.9rem; }
+.footer p { margin: 0; }
